@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Student Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background-color: #963;
+      color: #963;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #collapsibleNavbar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #collapsibleNavbar ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    #collapsibleNavbar ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .container h1 {
+      margin-bottom: 20px;
+    }
+
+    .container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .container button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #963;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="#">Student Management System</a>
+
+  <button type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span></span>
+  </button>
+</nav>
+<br>
+<br>
+<div class="container">
+  <div>
+    <div>
+      <h1> Create New Student </h1>
+      <div>
+        <form th:action="@{/students}" th:object = "${student}" method="POST">
+          <div>
+            <label> Student First Name </label>
+            <input
+                    type = "text"
+                    name = "firstName"
+                    th:field = "*{firstName}"
+                    placeholder="Enter Student First Name"
+            />
+          </div>
+
+          <div>
+            <label> Student Last Name </label>
+            <input
+                    type = "text"
+                    name = "lastName"
+                    th:field = "*{lastName}"
+                    placeholder="Enter Student Last Name"
+            />
+          </div>
+
+          <div>
+            <label> Student Email </label>
+            <input
+                    type = "text"
+                    name = "email"
+                    th:field = "*{email}"
+                    placeholder="Enter Student Email"
+            />
+          </div>
+          <div>
+            <label> Student GPA </label>
+            <input
+                    type = "text"
+                    name = "GPA"
+                    th:field = "*{GPA}"
+                    placeholder="Enter Student GPA"
+            />
+          </div>
+          <div>
+            <label> Student Age </label>
+            <input
+                    type = "text"
+                    name = "Age"
+                    th:field = "*{age}"
+                    placeholder="Enter Student Age"
+            />
+          </div>
+
+          <div>
+            <button type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
